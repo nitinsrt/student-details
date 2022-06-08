@@ -1,0 +1,11 @@
+.textInput{
+    margin-bottom: 10px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.textField{
+    padding: 15px;
+    margin: 10px 0px;
+    width: 100%
+}

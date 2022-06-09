@@ -77,6 +77,29 @@ const submitForm = async () =>{
          if(res.status===200){
           alert("Success")
         }
+        setvalues(
+          {
+            name:"",
+            rollNo: "",
+            branch: "",
+            contactNo: "",
+            email: "",
+            internships: [],
+            offers: [],
+            currentPosition: {
+               organisation: "",
+               package: 0,
+               location: ""
+            },
+            courses: [],
+            achievements: [],
+            journey: "",
+            goals:"",
+            relDetails: "",
+            githubLink: "",
+            linkedinLink: ""
+         
+        })
    }).catch(err => {
      setisloading(false)
      alert(err)

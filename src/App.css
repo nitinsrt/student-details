@@ -2,18 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 5rem;
 }
 
 .formField{
-  padding: 2rem;
+  padding: 1rem 2rem;
   margin-top: 1rem;
-  width: 35rem;
   height: auto;
   background-color: antiquewhite;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 20px;
+  width: 45vw;
 }
 
 .labelTop{
@@ -22,8 +22,18 @@
 
 .label{
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   justify-content: left;
   display: flex;
   align-items: left;
+}
+
+.notes{
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.error{
+  font-size: 0.8rem;
+  color: red;
 }

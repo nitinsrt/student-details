@@ -6,7 +6,7 @@ const TextInput = (props)=>{
   if (props.required){
   return (
       <div className='textInput'>
-          <label className='label'>{props.label}</label>
+          <label className='label'>{props.label+" * "}</label>
           <TextField variant="outlined" 
           placeholder={props.placeholder} 
           className="textField" 
@@ -17,6 +17,10 @@ const TextInput = (props)=>{
           value={props.value}
           name={props.name}
           />
+          {
+             props.note ?
+             <p className='notes'>{props.note}</p> : null
+          }
       </div>
   )
   }else{
@@ -31,6 +35,10 @@ const TextInput = (props)=>{
           type={props.type}
           name={props.name}
           />
+          {
+             props.note ?
+             <p className='notes'>{props.note}</p> : null
+          }
       </div>
     )
   }

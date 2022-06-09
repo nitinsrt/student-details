@@ -34,10 +34,10 @@ const Internships = (props)=>{
     return (
       <div className='dynamicForm'>
      <label className='labelTop'>Internship Details</label> <br/>
-     <TextInput label="Enter Your Organisation" required={true} value={values.organisation} name="organisation" placeholder='Organisation' onChange={onChange}/>
-     <TextInput label="Enter Your Designation" required={true} value={values.designation} name="designation" placeholder='Designation' onChange={onChange}/>
-     <TextInput label="Enter Duration (In Months)"  required={true} value={values.duration} name="duration" placeholder='Duration' type="Number" onChange={onChange}/>
-     <TextInput label="Enter Location"  required={true} value={values.location} name="location" placeholder='Location' onChange={onChange}/>
+     <TextInput label="Enter Your Organisation"  value={values.organisation} name="organisation" placeholder='Organisation' onChange={onChange}/>
+     <TextInput label="Enter Your Designation"  value={values.designation} name="designation" placeholder='Designation' onChange={onChange}/>
+     <TextInput label="Enter Duration (In Months)"  value={values.duration} name="duration" placeholder='Duration' type="Number" onChange={onChange}/>
+     <TextInput note="(Write 'Remote' in case of WFH)" label="Enter Location" value={values.location} name="location" placeholder='Location' onChange={onChange}/>
      <TextInput label="Enter Description" value={values.description} name="description" placeholder="Description" onChange={onChange}/>
      <div>
      <Button type='submit' variant='outlined' onClick={onSave}>Save</Button>

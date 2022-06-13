@@ -36,6 +36,7 @@ const [requiredRoll, setrequiredRoll] = useState(false)
 const [requiredBranch, setrequiredBranch] = useState(false)
 const [requiredEmail,setrequiredEmail] = useState(false)
 const [requiredJourney, setrequiredJourney] = useState(false)
+const [requiredBatch, setrequiredBatch] = useState(false)
 const [response,setresponse] = useState(null)
 const [values,setvalues] = useState({
    name:"",
@@ -56,13 +57,16 @@ const [values,setvalues] = useState({
    goals:"",
    relDetails: "",
    githubLink: "",
-   linkedinLink: ""
+   linkedinLink: "",
+   resumeLink: "",
+   collegeGithubLink: "",
+   batch: ""
 })
 
 const baseUrl = "https://class-of-iet22.herokuapp.com/form"
 
 const submitForm = async () =>{
-   if(values.email===""||values.name===""||values.branch===""||values.contactNo===""||values.journey===""){
+   if(values.email===""||values.name===""||values.branch===""||values.journey===""||values.rollNo===""|| values.batch===""){
     checkRequired()
      alert("Please Fill all the Required Fields")
      return
@@ -97,8 +101,10 @@ const submitForm = async () =>{
             goals:"",
             relDetails: "",
             githubLink: "",
-            linkedinLink: ""
-         
+            linkedinLink: "",
+            resumeLink: "",
+            collegeGithubLink: "",
+            batch: ""
         })
    }).catch(err => {
      setisloading(false)
@@ -128,15 +134,15 @@ const checkRequired = () =>{
   }else{
     setrequiredRoll(false)
   }
-  if(values.contactNo===""){
-    setrequiredPhone(true)
-  }else{
-    setrequiredPhone(false)
-  }
   if(values.journey===""){
     setrequiredJourney(true)
   }else{
     setrequiredJourney(false)
+  }
+  if(values.branch===""){
+    setrequiredBranch(true)
+  }else{
+    setrequiredBranch(false)
   }
 }
 
@@ -339,7 +345,7 @@ const onChangePostition = (e)=>{
      }
    }))
 }
-
+ console.log(values)
   return (<div className='app'>
     {
       isloading ? <Audio height="50" width="50" color="black" arialabel="loading" /> :
@@ -360,14 +366,30 @@ const onChangePostition = (e)=>{
       </div>
 
       <div className='formField'>
-      <RadioMenu label="Choose Your Branch" required={true} value={values.branch} name="branch" onChange={onChange}/>
+      <RadioMenu label="Choose Your Branch *" required={true} value={values.branch} name="branch" onChange={onChange}/>
       {
         requiredBranch ? <span className='error'>required *</span>: null
       }
       </div>
 
       <div className='formField'>
-      <TextInput placeholder="Contact Number" value={values.contactNo} name="contactNo" label="Enter Your Contact Number"  required={true} onChange={onChange}/>
+      <div className='dynamicForm'>
+      <label className='labelTop'>Choose Your Batch *</label>
+        <select name="batch" className='textInput' required value={values.batch} onChange={onChange} >
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2019">2018</option>
+       </select>
+      </div>
+      {
+        requiredBatch ? <span className='error'>required *</span>: null
+      }
+      </div>
+
+      <div className='formField'>
+      <TextInput placeholder="Contact Number" value={values.contactNo} name="contactNo" label="Enter Your Contact Number"  onChange={onChange}/>
       {
          !validPhone ? <span className='error'>Enter a valid Phone No</span> : null
       }
@@ -459,6 +481,14 @@ const onChangePostition = (e)=>{
 
       <div className='formField'>
         <TextInput label="Enter Your LinkedIn Profile Link" placeholder="LinkedIn Link" name="linkedinLink" value={values.linkedinLink} onChange={onChange}  />
+      </div>
+
+      <div className='formField'>
+        <TextInput label="Enter Github Link from College ID" placeholder="College Github Link" name="collegeGithubLink" value={values.collegeGithubLink} onChange={onChange}  />
+      </div>
+
+      <div className='formField'>
+        <TextInput label="Enter Your Resume Link" placeholder="Resume Link" name="resumeLink" value={values.resumeLink} onChange={onChange}  />
       </div>
 
       <Button variant='contained' onClick={submitForm}>Submit</Button>

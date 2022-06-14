@@ -303,8 +303,8 @@ const onSaveOffer = (org,desig,ctc,loc,i)=>{
 
 const onSaveAchievement = (body, type, i) =>{
     const obj = {
-     type: type,
-      body: body
+     achType: type,
+      achBody: body
     }
     values.achievements.push(obj)
     alert("Saved")

@@ -139,10 +139,10 @@ const checkRequired = () =>{
   }else{
     setrequiredJourney(false)
   }
-  if(values.branch===""){
-    setrequiredBranch(true)
+  if(values.batch===""){
+    setrequiredBatch(true)
   }else{
-    setrequiredBranch(false)
+    setrequiredBatch(false)
   }
 }
 
@@ -376,6 +376,7 @@ const onChangePostition = (e)=>{
       <div className='dynamicForm'>
       <label className='labelTop'>Choose Your Batch *</label>
         <select name="batch" className='textInput' required value={values.batch} onChange={onChange} >
+        <option value="blank">Blank</option>
         <option value="2022">2022</option>
         <option value="2021">2021</option>
         <option value="2020">2020</option>
